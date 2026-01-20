@@ -15,7 +15,17 @@ const app = express(); // Using express.js to power our application / server
 
 app.use(express.json()); //uses express in JSON format
 
-app.use(cors("*")); // Enables use of CORS (CROSS-ORIGIN RESOURCE SHARING - SECURITY MEASURE ) - * means every domain is now allowed acces to this server to send and receive data - not secure - * is for development only
+const corsOptions = {
+origin: "https://to-do-app25-13.vercel.app",
+methods:["GET", "POST","PUT", "PATCH", "DELETE"],
+credentials: true
+
+};
+
+
+
+
+app.use(cors("corsOptions)); // Enables use of CORS (CROSS-ORIGIN RESOURCE SHARING - SECURITY MEASURE ) - * means every domain is now allowed acces to this server to send and receive data - not secure - * is for development only
 
 
 
